@@ -88,7 +88,7 @@ Node* iterative_bstree_search(BSTree x, Type key)
 
 // 查找最大值
 // 最右的节点
-Node* bstree_maximun(BSTree tree)
+Node* bstree_maximum(BSTree tree)
 {
     if (tree == NULL)
         return NULL;
@@ -118,7 +118,7 @@ Node* bstree_minimum(BSTree tree)
 Node* bstree_predecessor(Node *x)
 {
     if (x->left != NULL)
-        return bstree_maximun(x->left);
+        return bstree_maximum(x->left);
 
     Node *y = x->parent;
     while ((y != NULL) && (x == y->left))
@@ -253,15 +253,15 @@ void print_bstree(BSTree tree, Type key, int direction)
 }
 
 // 销毁二叉树
-void destory_bstree(BSTree tree)
+void destroy_bstree(BSTree tree)
 {
     if (tree == NULL)
         return;
     
     if (tree->left != NULL)
-        destory_bstree(tree->left);
+        destroy_bstree(tree->left);
     if (tree->left != NULL)
-        destory_bstree(tree->right);
+        destroy_bstree(tree->right);
 
     free(tree);
 }
